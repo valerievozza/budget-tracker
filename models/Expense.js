@@ -18,9 +18,15 @@ const ExpenseSchema = new mongoose.Schema({
     required: true,
   },
   frequency: {
-    type: String,
-    default: 'monthly',
-    enum: ['daily', 'weekly', 'monthly', 'annually']
+    num: {
+      type: Number,
+      default: 1,
+    },
+    unit: {
+      type: String,
+      default: 'monthly',
+      enum: ['day', 'week', 'month', 'year']
+    }
   },
   category: {
     type: String,
