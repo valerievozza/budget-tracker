@@ -1,0 +1,15 @@
+<%- include('partials/header') -%>
+
+<div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Add an expense</h2>
+    <form action="/budget/add" method="POST">
+      <div class="form-control">
+        <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+      </div>
+    </form>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
