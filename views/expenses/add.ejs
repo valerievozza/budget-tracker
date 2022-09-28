@@ -1,17 +1,35 @@
 <%- include('../partials/header') -%>
 
 <div class="container-fluid" align="center">
-  <div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card w-96 bg-base-100 shadow-xl" align="left">
     <div class="card-body">
       <h2 class="card-title">Add an expense</h2>
-      <form action="/expense/add" method="POST">
+      <form action="/expenses/add" method="POST">
         <div class="form-control">
-          <input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+          <input type="text" placeholder="Expense" class="input input-bordered input-primary w-full max-w-xs mb-3" name="expense" id="expense" required />
+          <input type="number" placeholder="Cost" class="input input-bordered input-primary w-full max-w-xs mb-3" name="cost" id="cost" required />
+          
+          <!-- Frequency -->
+          <label class="label" for="frequency">How often?</label>
+          <div class="grid grid-cols-2 gap-5">
+            <input type="number" placeholder="Number" class="input input-bordered input-primary w-full max-w-xs mb-3 col" name="num" id="num" />
+            <select class="select select-primary w-full max-w-xs mb-3 col" name="unit" id="unit" >
+              <option selected value="months">Months</option>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="years">Years</option>
+            </select>
+          </div>
+          <label class="label" for="due">Due Date</label>
+          <input type="date" class="input input-bordered input-primary w-full max-w-xs mb-3" name="due" id="due" />
+          <input type="text" placeholder="Category" class="input input-bordered input-primary w-full max-w-xs mb-3" name="category" id="category" />
+          <input type="text" placeholder="Source of funds" class="input input-bordered input-primary w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
+          <textarea class="textarea textarea-primary mb-3" placeholder="Notes"></textarea>
+        </div>
+        <div class="card-actions justify-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Buy Now</button>
-      </div>
     </div>
   </div>
 </div>
