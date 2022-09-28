@@ -4,7 +4,11 @@ const router = express.Router();
 const budgetController = require("../controllers/budget");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
+router.get("/", ensureAuth, budgetController.getBudget)
+
 router.get("/:id", ensureAuth, budgetController.getExpense);
+
+router.get("/add", ensureAuth, budgetController.getAddExpense)
 
 router.post("/createExpense", budgetController.createExpense);
 
