@@ -1,7 +1,53 @@
 <%- include('partials/header') -%>
 
-<div class="container">
-  <a href="/expenses/add" class="btn btn-primary">Add expense</a>
+<div class="container-fluid title mb-3" align="center">Hello <%= user.userName %></div>
+
+<div class="container-fluid" align="center">
+  <a href="/expenses/add" class="btn btn-secondary mb-5">Add expense</a>
+  <a href="income/add" class="btn btn-primary">Add income</a>
+</div>
+
+<div class="container-fluid" align="center">
+  <div class="card w-96 bg-base-100 shadow-xl" align="left">
+    <div class="card-body">
+      <div class="card-title">Totals</div>
+      <p>Daily:</p>
+      <p>Weekly:</p>
+      <p>Monthly:</p>
+      <p>Annually:</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="card-body">
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Expense</th>
+          <th>Cost</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Row -->
+        <% for (let i=0; i < expenses.length; i++) { %>
+          <tr>
+            <th></th>
+            <td><%= expenses[i].expense %></td>
+            <td><%= expenses[i].cost %></td>
+            <td>
+              <!-- todo: Figure out how to render frequency values -->
+            </td>
+          </tr>
+        <% } %>
+  
+      </tbody>
+    </table>
+  </div>
 </div>
   
 <%- include('partials/footer') -%>
