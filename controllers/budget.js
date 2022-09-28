@@ -18,6 +18,13 @@ module.exports = {
       console.error(err);
     }
   },
+  getAddExpense: (req, res) => {
+    try {
+      res.render("add.ejs");
+    } catch (err) {
+      console.error(err);
+    }
+  },
   createExpense: async (req, res) => {
     try {
       // // Upload image to cloudinary
