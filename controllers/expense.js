@@ -13,14 +13,14 @@ module.exports = {
   getExpense: async (req, res) => {
     try {
       const expense = await Expense.findById(req.params.id);
-      res.render("expense.ejs", { expense: expense, user: req.user });
+      res.render("expenses/expense", { expense: expense, user: req.user });
     } catch (err) {
       console.error(err);
     }
   },
   getAddExpense: (req, res) => {
     try {
-      res.render("add.ejs");
+      res.render("expenses/add");
     } catch (err) {
       console.error(err);
     }
