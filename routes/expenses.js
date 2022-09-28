@@ -8,7 +8,7 @@ router.get("/:id", ensureAuth, expenseController.getExpense);
 
 router.get("/add", ensureAuth, expenseController.getAddExpense)
 
-router.post("/createExpense", expenseController.createExpense);
+router.post("/add", expenseController.createExpense);
 
 router.put("/deleteExpense/:id", expenseController.deleteExpense);
 
