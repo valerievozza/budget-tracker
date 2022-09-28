@@ -19,11 +19,7 @@ module.exports = {
     }
   },
   getAddExpense: (req, res) => {
-    try {
-      res.render("expenses/add");
-    } catch (err) {
-      console.error(err);
-    }
+    res.render("expenses/add")
   },
   createExpense: async (req, res) => {
     try {
