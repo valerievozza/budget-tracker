@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ExpenseSchema = new mongoose.Schema({
-  expenseName: {
+  expense: {
     type: String,
     required: true,
   },
@@ -13,7 +13,7 @@ const ExpenseSchema = new mongoose.Schema({
   //   type: String,
   //   require: true,
   // },
-  amount: {
+  cost: {
     type: Number,
     required: true,
   },
@@ -24,8 +24,8 @@ const ExpenseSchema = new mongoose.Schema({
     },
     unit: {
       type: String,
-      default: 'monthly',
-      enum: ['day', 'week', 'month', 'year']
+      default: 'months',
+      enum: ['days', 'weeks', 'months', 'years']
     }
   },
   category: {
