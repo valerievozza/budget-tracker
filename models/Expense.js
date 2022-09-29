@@ -24,8 +24,8 @@ const ExpenseSchema = new mongoose.Schema({
     },
     unit: {
       type: String,
-      default: 'months',
-      enum: ['days', 'weeks', 'months', 'years']
+      default: 'month',
+      enum: ['day', 'week', 'month', 'year']
     }
   },
   category: {
