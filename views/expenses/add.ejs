@@ -4,7 +4,7 @@
   <div class="card w-96 bg-base-100 shadow-xl" align="left">
     <div class="card-body">
       <h2 class="card-title">Add an expense</h2>
-      <form action="/expenses/add" method="POST">
+      <form action="/expense/add" method="POST">
         <div class="form-control">
           <input type="text" placeholder="Expense" class="input input-bordered input-primary w-full max-w-xs mb-3" name="expense" id="expense" required />
           <input type="number" placeholder="Cost" class="input input-bordered input-primary w-full max-w-xs mb-3" name="cost" id="cost" required />
@@ -22,7 +22,14 @@
           </div>
           <label class="label" for="due">Due Date</label>
           <input type="date" class="input input-bordered input-primary w-full max-w-xs mb-3" name="due" id="due" />
-          <input type="text" placeholder="Category" class="input input-bordered input-primary w-full max-w-xs mb-3" name="category" id="category" />
+          <select class="select select-primary w-full max-w-xs mb-3 col" name="unit" id="unit" >
+            <option>Category</option>
+            <option value="home">Home</option>
+            <option value="auto">Auto</option>
+            <option value="education">Education</option>
+            <option value="utilities">Utilities</option>
+            <option value="pet">Pet</option>
+          </select>
           <input type="text" placeholder="Source of funds" class="input input-bordered input-primary w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
           <textarea class="textarea textarea-primary mb-3" placeholder="Notes"></textarea>
         </div>
