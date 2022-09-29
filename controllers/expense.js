@@ -46,6 +46,9 @@ module.exports = {
       console.error(err);
     }
   },
+  getEditExpense: (req, res) => {
+    res.render("expenses/edit")
+  },
   deleteExpense: async (req, res) => {
     try {
       let expense = await Expense.findById(req.params.id);
