@@ -10,6 +10,8 @@ router.post("/add", expenseController.createExpense);
 
 router.get("/:id", ensureAuth, expenseController.getExpense);
 
+router.get("/:id/edit", ensureAuth, expenseController.getEditExpense);
+
 router.put("/deleteExpense/:id", expenseController.deleteExpense);
 
 module.exports = router;
