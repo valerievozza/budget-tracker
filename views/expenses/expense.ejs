@@ -34,11 +34,11 @@
       </div>
         <div class="card-actions justify-end">
           <div>
-            <a href="/expenses/<%=expense.id%>/edit" class="btn btn-primary">Edit</a>
+            <a href="/expense/<%=expense.id%>/edit" class="btn btn-primary">Edit</a>
           </div>
           <div>
             <form
-              action="/post/deletePost/<%= expense.id %>?_method=DELETE"
+              action="/expense/<%= expense.id %>/deleteExpense?_method=PUT"
               method="POST"
             >
               <button class="btn btn-secondary" type="submit">Delete</button>
