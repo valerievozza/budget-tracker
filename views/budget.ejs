@@ -29,7 +29,7 @@
           <th></th>
           <th>Expense</th>
           <th>Cost</th>
-          <th>Frequency</th>
+          <th>How often?</th>
         </tr>
       </thead>
       <tbody>
@@ -37,10 +37,21 @@
         <% for (let i=0; i < expenses.length; i++) { %>
           <tr>
             <th></th>
-            <td><%= expenses[i].expense %></td>
+            <td>
+              <a href="/expenses/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
+            </td>
             <td><%= expenses[i].cost %></td>
             <td>
               <!-- todo: Figure out how to render frequency values -->
+              <% for (let frequency in expenses[i]) { %>
+                <% if (expenses[i].hasOwnProperty(frequency)) { %>
+                   <% if (expenses[i][frequency].num > 1) { %>
+                    Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>s
+                   <% } else if (expenses[i][frequency].num === 1) { %>
+                    Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>
+                   <% } %>
+                <%}%>
+             <%}%>
             </td>
           </tr>
         <% } %>
