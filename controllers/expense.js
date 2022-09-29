@@ -4,7 +4,7 @@ const Expense = require("../models/Expense");
 module.exports = {
   getBudget: async (req, res) => {
     try {
-      const expenses = await Expense.find({ user: req.user.id }).lean();
+      const expenses = await Expense.find({ user: req.user.id, deleted: false }).lean();
       res.render("budget.ejs", { expenses: expenses, user: req.user });
       console.log(expenses)
     } catch (err) {
@@ -46,15 +46,42 @@ module.exports = {
       console.error(err);
     }
   },
-  getEditExpense: (req, res) => {
-    res.render("expenses/edit")
+  getEditExpense: async (req, res) => {
+    try {
+      const expense = await Expense.findById(req.params.id);
+      res.render("expenses/edit", { expense: expense, user: req.user });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  editExpense: async (req, res) => {
+    try {
+      let expense = await Expense.findById(req.params.id).lean()
+
+      if (!expense) {
+          return res.render('error/404')
+      }
+
+      if (expense.user != req.user.id) {
+          res.redirect('/')
+      } else {
+          expense = await Expense.findOneAndUpdate({_id: req.params.id}, req.body, {
+              new: true,
+              runValidators: true
+          })
+      res.redirect(`/expense/${req.params.id}`)
+      }
+
+  } catch (err) {
+      console.error(err)
+  }
   },
   deleteExpense: async (req, res) => {
     try {
       let expense = await Expense.findById(req.params.id);
 
       // ! Check if this works
-      await Expense.findOneAndUpdate({ _id: req.params.id, deleted: true });
+      await Expense.findOneAndUpdate({ _id: req.params.id }, {deleted: true});
       console.log(`Updated expense ${expenseName}`);
       res.redirect("/budget");
     } catch (err) {
