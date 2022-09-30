@@ -32,13 +32,32 @@
           <% } %>
           <label class="label" for="due" value="<%= expense.due %>">Due Date</label>
           <input type="date" class="input input-bordered input-primary w-full max-w-xs mb-3" name="due" id="due" />
-          <select class="select select-primary w-full max-w-xs mb-3 col" name="category" id="category" value="<%= expense.category %>">
-            <option>Category</option>
+          <select class="select select-primary w-full max-w-xs mb-3 col" name="category" id="category">
+            <% if (expense.category !== "") { %>
+              <option value="">Category</option>
+              <option selected value="<%= expense.category %>">
+                <%= expense.category[0].toUpperCase() + expense.category.slice(1) %>
+              </option>
+              <% if (expense.category !== 'home') { %>
+                <option value="home">Home</option>
+              <% } %>
+              <% if (expense.category !== 'auto') { %>
+                <option value="auto">Auto</option>
+              <% } %>
+              <% if (expense.category !== 'education') { %>
+                <option value="education">Education</option>
+              <% } %>
+              <% if (expense.category !== 'utilities') { %>
+                <option value="utilities">Utilities</option>
+              <% } %>
+            <% } else { %>
+              <option value="">Category</option>
             <option value="home">Home</option>
             <option value="auto">Auto</option>
             <option value="education">Education</option>
             <option value="utilities">Utilities</option>
             <option value="pet">Pet</option>
+            <% } %>
           </select>
           <input type="text" placeholder="Source of funds" value="<%= expense.fundsSource %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
           <textarea class="textarea textarea-primary mb-3" placeholder="Notes" value="<%= expense.notes %>"></textarea>
