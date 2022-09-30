@@ -8,88 +8,88 @@
 </div>
 
 <div class="flex flex-col-reverse" >
-<div class="card-body">
-  <div class="overflow-x-auto">
-    <table class="table table-zebra w-full">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th></th>
-          <th>Expense</th>
-          <th>Cost</th>
-          <th>How often?</th>
-          <th>Daily</th>
-          <th>Weekly</th>
-          <th>Monthly</th>
-          <th>Yearly</th>
-        </tr>
-      </thead>
-      <tbody>
+  <div class="card-body">
+    <div class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Expense</th>
+            <th>Cost</th>
+            <th>How often?</th>
+            <th>Daily</th>
+            <th>Weekly</th>
+            <th>Monthly</th>
+            <th>Yearly</th>
+          </tr>
+        </thead>
+        <tbody>
           <% let dailyTotal = [] %>
           <% let weeklyTotal = [] %>
           <% let monthlyTotal = [] %>
           <% let yearlyTotal = [] %>
-        <!-- Row -->
-        <% for (let i=0; i < expenses.length; i++) { %>
+          <!-- Row -->
+          <% for (let i=0; i < expenses.length; i++) { %>
             <% dailyTotal.push(expenses[i].daily) %>
             <% weeklyTotal.push(expenses[i].weekly) %>
             <% monthlyTotal.push(expenses[i].monthly) %>
             <% yearlyTotal.push(expenses[i].yearly) %>
-          <tr>
+            <tr>
               <th>
                 
               </th>
-            
-            <!-- Expense -->
-            <td>
-              <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
-            </td>
-
-            <!-- Cost -->
-            <td>$<%= expenses[i].cost.toFixed(2) %></td>
-            
-            <!-- Frequency loop -->
-            <% if (expenses[i].frequency) { %>
-              <% let num = expenses[i].frequency.num %>
-              <% let unit = expenses[i].frequency.unit %>
-            
-            <!-- How often? -->
-            <td>
-                <% if (num > 1) { %>
-                  Every <%= num %> <%= unit %>s
-                 <% } else if (num === 1) { %>
-                  Every <%= unit %>
-                 <% } %>
-            </td>
-
-            <!-- Daily -->
-            <td>
-              <%= expenses[i].daily %>
-            </td>
-
-            <!-- Weekly -->
-            <td>
-              <%= expenses[i].weekly %>
-            </td>
-
-            <!-- Monthly -->
-            <td>
-              <%= expenses[i].monthly %>
-            </td>
-
-            <!-- Yearly -->
-            <td>
-              <%= expenses[i].yearly %>
-            </td>
-
-            <% } %>
-          </tr>
-        <% } %>
+              
+              <!-- Expense -->
+              <td>
+                <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
+              </td>
   
-      </tbody>
-    </table>
+              <!-- Cost -->
+              <td>$<%= expenses[i].cost.toFixed(2) %></td>
+              
+              <!-- Frequency loop -->
+              <% if (expenses[i].frequency) { %>
+                <% let num = expenses[i].frequency.num %>
+                <% let unit = expenses[i].frequency.unit %>
+              
+              <!-- How often? -->
+              <td>
+                  <% if (num > 1) { %>
+                    Every <%= num %> <%= unit %>s
+                   <% } else if (num === 1) { %>
+                    Every <%= unit %>
+                   <% } %>
+              </td>
+  
+              <!-- Daily -->
+              <td>
+                <%= expenses[i].daily %>
+              </td>
+  
+              <!-- Weekly -->
+              <td>
+                <%= expenses[i].weekly %>
+              </td>
+  
+              <!-- Monthly -->
+              <td>
+                <%= expenses[i].monthly %>
+              </td>
+  
+              <!-- Yearly -->
+              <td>
+                <%= expenses[i].yearly %>
+              </td>
+  
+              <% } %>
+            </tr>
+          <% } %>
+    
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
   
   <div class="container-fluid" align="center">
     <div class="card w-96 bg-base-100 shadow-xl" align="left">
@@ -104,4 +104,8 @@
     </div>
   </div>
 </div>
+
+<div style="height: 40px"></div>
+
 <%- include('partials/footer') -%>
+<%- include('partials/nav_bottom') -%>
