@@ -55,4 +55,98 @@ const ExpenseSchema = new mongoose.Schema({
   },
 });
 
+ExpenseSchema.virtual('daily')
+  .get(function() {
+    
+    const cost = this.cost
+    const num = this.frequency.num
+    const unit = this.frequency.unit
+
+    // Day
+    if (unit === 'day') {
+      return (cost / num).toFixed(2)
+    // Week
+    } else if (unit === 'week') {
+      return ((cost / num) / 7).toFixed(2)
+    // Month
+    } else if (unit === 'month') {
+      return ((cost / num) / 30).toFixed(2)
+    // Year
+    } else if (unit === 'year') {
+      return (cost / (365 / num)).toFixed(2)
+    }
+})
+
+// todo: make this code weekly
+ExpenseSchema.virtual('weekly')
+  .get(function() {
+    
+    const cost = this.cost
+    const num = this.frequency.num
+    const unit = this.frequency.unit
+
+    // Day
+    if (unit === 'day') {
+      return (cost / num).toFixed(2)
+    // Week
+    } else if (unit === 'week') {
+      return ((cost / num) / 7).toFixed(2)
+    // Month
+    } else if (unit === 'month') {
+      return ((cost / num) / 30).toFixed(2)
+    // Year
+    } else if (unit === 'year') {
+      return (cost / (365 / num)).toFixed(2)
+    }
+})
+
+// todo: make this code monthly
+ExpenseSchema.virtual('monthly')
+  .get(function() {
+    
+    const cost = this.cost
+    const num = this.frequency.num
+    const unit = this.frequency.unit
+
+    // Day
+    if (unit === 'day') {
+      return (cost / num).toFixed(2)
+    // Week
+    } else if (unit === 'week') {
+      return ((cost / num) / 7).toFixed(2)
+    // Month
+    } else if (unit === 'month') {
+      return ((cost / num) / 30).toFixed(2)
+    // Year
+    } else if (unit === 'year') {
+      return (cost / (365 / num)).toFixed(2)
+    }
+})
+
+// todo: make this code yearly
+ExpenseSchema.virtual('yearly')
+  .get(function() {
+    
+    const cost = this.cost
+    const num = this.frequency.num
+    const unit = this.frequency.unit
+
+    // Day
+    if (unit === 'day') {
+      return ((365 / num) * cost).toFixed(2)
+    // Week
+    } else if (unit === 'week') {
+      return ((52 / num) * cost).toFixed(2)
+    // Month
+    } else if (unit === 'month') {
+      return ((12 / num) * cost).toFixed(2)
+    // Year
+    } else if (unit === 'year') {
+      return (cost / num).toFixed(2)
+    }
+})
+
+ExpenseSchema.set('toJSON', { virtuals: true })
+ExpenseSchema.set('toObject', { virtuals: true })
+
 module.exports = mongoose.model("Expense", ExpenseSchema);
