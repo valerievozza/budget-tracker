@@ -42,9 +42,13 @@
         <% for (let i=0; i < expenses.length; i++) { %>
           <tr>
             <th></th>
+            
+            <!-- Expense -->
             <td>
               <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
             </td>
+
+            <!-- Cost -->
             <td>$<%= expenses[i].cost.toFixed(2) %></td>
             
             <!-- Frequency loop -->
