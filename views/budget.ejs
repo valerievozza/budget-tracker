@@ -63,42 +63,22 @@
 
             <!-- Daily -->
             <td>
-              <!-- Day -->
-              <% if (unit === 'day') { %>
-                $<%= (expenses[i].cost / num).toFixed(2) %>
-                <!-- Week -->
-               <% } else if (unit === 'week') { %>
-                $<%= ((expenses[i].cost / num) / 7).toFixed(2) %>
-                <!-- Month -->
-               <% } else if (unit === 'month') { %>
-                $<%= ((expenses[i].cost / num) / 30).toFixed(2) %>
-                <!-- Year -->
-               <% } else if (unit === 'year') { %>
-                $<%= (expenses[i].cost / (365 / num)).toFixed(2) %>
-               <% } %>
+              <%= expenses[i].daily %>
             </td>
 
             <!-- Weekly -->
-            <td></td>
+            <td>
+              <%= expenses[i].weekly %>
+            </td>
 
             <!-- Monthly -->
-            <td></td>
+            <td>
+              <%= expenses[i].monthly %>
+            </td>
 
             <!-- Yearly -->
             <td>
-              <!-- Day -->
-              <% if (unit === 'day') { %>
-                $<%= (365 / num) * expenses[i].cost %>
-                <!-- Week -->
-               <% } else if (unit === 'day') { %>
-                $<%= (52 / num) * expenses[i].cost %>
-                <!-- Month -->
-               <% } else if (unit === 'month') { %>
-                $<%= (12 / num) * expenses[i].cost %>
-                <!-- Year -->
-               <% } else if (unit === 'year') { %>
-                $<%= (num) * expenses[i].cost %>
-               <% } %>
+              <%= expenses[i].yearly %>
             </td>
 
             <% } %>
