@@ -116,3 +116,21 @@ exports.postSignup = (req, res, next) => {
     }
   );
 };
+
+exports.getAccount = async (req, res) => {
+  if (!req.user) {
+    return res.redirect("/");
+  }
+  const user = await User.findById(req.user.id)
+
+  res.render("account", {user: user});
+};
+
+exports.deleteAccount = async (req, res) => {
+  if (!req.user) {
+    return res.redirect("/");
+  }
+  const user = await User.findOneAndDelete(req.user.id)
+
+  res.render("account", {user: user});
+};
