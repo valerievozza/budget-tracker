@@ -25,10 +25,21 @@
             <div class="grid grid-cols-2 gap-5">
               <input type="number" placeholder="Number" value="<%= num %>" class="input w-full max-w-xs mb-3 col" name="num" id="num" />
               <select class="select w-full max-w-xs mb-3 col" name="unit" id="unit" value="<%= unit %>" >
-                <option value="day">Day(s)</option>
-                <option value="week">Week(s)</option>
-                <option value="month">Month(s)</option>
-                <option value="year">Year(s)</option>
+                <option selected value="<%= unit %>">
+                  <%= unit[0].toUpperCase() + unit.slice(1) %>(s)
+                </option>
+                <% if (unit !== "day") { %>
+                  <option value="day">Day(s)</option>
+                <% } %>
+                <% if (unit !== "week") { %>
+                  <option value="week">Week(s)</option>
+                <% } %>
+                <% if (unit !== "month") { %>
+                  <option value="month">Month(s)</option>
+                <% } %>
+                <% if (unit !== "year") { %>
+                  <option value="year">Year(s)</option>
+                <% } %>
               </select>
             </div>
           <% } %>
