@@ -35,10 +35,10 @@ module.exports = {
           num: req.body.num,
           unit: req.body.unit,
         },
-        // category: req.body.category,
-        // due: req.body.due,
-        // fundsSource: req.body.fundsSource,
-        // notes: req.body.notes,
+        category: req.body.category,
+        due: req.body.due,
+        fundsSource: req.body.fundsSource,
+        notes: req.body.notes,
         user: req.user.id,
       });
       console.log(`Expense ${expense} created`);
