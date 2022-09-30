@@ -101,7 +101,7 @@ module.exports = {
 
       // ! Check if this works
       await Expense.findOneAndUpdate({ _id: req.params.id }, {deleted: true});
-      console.log(`Updated expense ${expenseName}`);
+      console.log(`Deleted ${expense.expense}`);
       res.redirect("/budget");
     } catch (err) {
       console.error(err)
