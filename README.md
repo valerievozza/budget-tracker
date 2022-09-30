@@ -8,8 +8,9 @@ A personal budget tracker app with passport local authorization. Add bills and m
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+| ![pocket_main](https://user-images.githubusercontent.com/101529105/193365059-7f264d9b-cb0c-473f-a3db-7339103abd1a.png) | ![Screenshot from 2022-09-30 14-35-49](https://user-images.githubusercontent.com/101529105/193364699-95e74d2c-0d64-4451-a2a3-4b881ac825a8.png) | ![pocket_budget](https://user-images.githubusercontent.com/101529105/193365060-50141b60-708a-436a-bb5d-4e2049bca6a0.png)|
+|:--:|:--:|:--:|
+| ![Screenshot from 2022-09-30 15-07-06](https://user-images.githubusercontent.com/101529105/193364608-806bf4fb-5315-47ec-969e-52e2cd2466a1.png) | ![Screenshot from 2022-09-30 15-07-25](https://user-images.githubusercontent.com/101529105/193364605-84e410b9-2cd7-4306-a9f0-402a94f44d01.png) | ![Screenshot from 2022-09-30 15-07-33](https://user-images.githubusercontent.com/101529105/193364604-7c10b4d2-ebbf-4eb1-b5a4-4a2731f8fc84.png)
 
 ## Tech Stack
 
@@ -59,15 +60,7 @@ To run this project, you will need to add the following environment variables to
 
 ## Other Examples of My Work
 
-**Mailroom:** https://mailroom.cyclic.app
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-
-**Pictogram:** https://pictogram.cyclic.app
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-**myPetPal: ** https://mypetpal.onrender.com
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+| Mailroom | Pictogram | myPetPal |
+|:--:|:--:|:--:|
+| ![mailroom](https://user-images.githubusercontent.com/101529105/193365432-ab411c6f-b230-4355-9252-0b17ed7aa078.png) | ![pictogram](https://user-images.githubusercontent.com/101529105/193365933-2936db33-1cd2-47ac-b960-c6f15bfafcb4.png) | ![Screenshot from 2022-09-30 11-42-02](https://user-images.githubusercontent.com/101529105/193365537-af22d177-b035-430e-b3d7-bdb7b25133c0.png) |
+| https://mailroom.cyclic.app | https://pictogram.cyclic.app | https://mypetpal.onrender.com
