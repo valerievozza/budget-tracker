@@ -30,6 +30,7 @@ const ExpenseSchema = new mongoose.Schema({
   },
   category: {
     type: String,
+    default: ""
   },
   due: {
     type: Date,
