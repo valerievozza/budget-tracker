@@ -10,7 +10,9 @@
       >
         <div class="form-control">
           <input type="text" placeholder="Expense" value="<%= expense.expense %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="expense" id="expense" required />
-          <input type="number" placeholder="Cost" value="<%= expense.cost %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="cost" id="cost" required />
+          
+          <!-- Cost -->
+          <input type="number" placeholder="Cost" value="<%= expense.cost %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="cost" id="cost" min="1" required />
           
           <!-- Frequency -->
           <label class="label" for="frequency">How often?<br>Every...</label>
