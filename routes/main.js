@@ -13,6 +13,7 @@ router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 
+router.get("/account", ensureAuth, authController.getAccount)
 router.get("/budget", ensureAuth, expenseController.getBudget)
 
 module.exports = router;
