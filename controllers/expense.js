@@ -14,6 +14,7 @@ module.exports = {
   getExpense: async (req, res) => {
     try {
       const expense = await Expense.findById(req.params.id);
+      console.log(expense)
       res.render("expenses/expense", { expense: expense, user: req.user });
     } catch (err) {
       console.error(err);
