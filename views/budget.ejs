@@ -45,40 +45,37 @@
             <td>
               <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
             </td>
-            <td><%= expenses[i].cost %></td>
+            <td>$<%= expenses[i].cost.toFixed(2) %></td>
+            
+            <!-- Frequency loop -->
+            <% if (expenses[i].frequency) { %>
+              <% let num = expenses[i].frequency.num %>
+              <% let unit = expenses[i].frequency.unit %>
+            
+            <!-- How often? -->
             <td>
-              <!-- todo: Figure out how to render frequency values -- this was working before?? -->
-              <% for (frequency in expenses[i]) { %>
-                <% if (expenses[i].frequency) { %>
-                   <% if (expenses[i][frequency].num > 1) { %>
-                    Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>s
-                   <% } else if (expenses[i][frequency].num === 1) { %>
-                    Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>
-                   <% } %>
-                <%}%>
-             <%}%>
+                <% if (num > 1) { %>
+                  Every <%= num %> <%= unit %>s
+                 <% } else if (num === 1) { %>
+                  Every <%= unit %>
+                 <% } %>
             </td>
 
             <!-- Daily -->
             <td>
-              <!-- todo: FIX THIS -- BAD MATH -->
-              <% for (frequency in expenses[i]) { %>
-                <% if (expenses[i].frequency) { %>
-                  <!-- Day -->
-                  <% if (expenses[i][frequency].unit === 'day') { %>
-                    $<%= expenses[i].cost / expenses[i][frequency].num %>
-                    <!-- Week -->
-                   <% } else if (expenses[i][frequency].unit === 'day') { %>
-                    $<%= expenses[i].cost / (7 / expenses[i][frequency].num) %>
-                    <!-- Month -->
-                   <% } else if (expenses[i][frequency].unit === 'month') { %>
-                    $<%= expenses[i].cost / (30 / expenses[i][frequency].num) %>
-                    <!-- Year -->
-                   <% } else if (expenses[i][frequency].unit === 'year') { %>
-                    $<%= expenses[i].cost / (365 / expenses[i][frequency].num) %>
-                   <% } %>
-                <%}%>
-             <%}%>
+              <!-- Day -->
+              <% if (unit === 'day') { %>
+                $<%= (expenses[i].cost / num).toFixed(2) %>
+                <!-- Week -->
+               <% } else if (unit === 'week') { %>
+                $<%= ((expenses[i].cost / num) / 7).toFixed(2) %>
+                <!-- Month -->
+               <% } else if (unit === 'month') { %>
+                $<%= ((expenses[i].cost / num) / 30).toFixed(2) %>
+                <!-- Year -->
+               <% } else if (unit === 'year') { %>
+                $<%= (expenses[i].cost / (365 / num)).toFixed(2) %>
+               <% } %>
             </td>
 
             <!-- Weekly -->
@@ -89,24 +86,22 @@
 
             <!-- Yearly -->
             <td>
-              <% for (frequency in expenses[i]) { %>
-                <% if (expenses[i].frequency) { %>
-                  <!-- Day -->
-                  <% if (expenses[i][frequency].unit === 'day') { %>
-                    $<%= (365 / expenses[i][frequency].num) * expenses[i].cost %>
-                    <!-- Week -->
-                   <% } else if (expenses[i][frequency].unit === 'day') { %>
-                    $<%= (52 / expenses[i][frequency].num) * expenses[i].cost %>
-                    <!-- Month -->
-                   <% } else if (expenses[i][frequency].unit === 'month') { %>
-                    $<%= (12 / expenses[i][frequency].num) * expenses[i].cost %>
-                    <!-- Year -->
-                   <% } else if (expenses[i][frequency].unit === 'year') { %>
-                    $<%= (expenses[i][frequency].num) * expenses[i].cost %>
-                   <% } %>
-                <%}%>
-             <%}%>
+              <!-- Day -->
+              <% if (unit === 'day') { %>
+                $<%= (365 / num) * expenses[i].cost %>
+                <!-- Week -->
+               <% } else if (unit === 'day') { %>
+                $<%= (52 / num) * expenses[i].cost %>
+                <!-- Month -->
+               <% } else if (unit === 'month') { %>
+                $<%= (12 / num) * expenses[i].cost %>
+                <!-- Year -->
+               <% } else if (unit === 'year') { %>
+                $<%= (num) * expenses[i].cost %>
+               <% } %>
             </td>
+
+            <% } %>
           </tr>
         <% } %>
   
