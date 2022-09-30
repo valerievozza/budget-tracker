@@ -14,7 +14,6 @@
         <!-- head -->
         <thead>
           <tr>
-            <th></th>
             <th>Expense</th>
             <th>Cost</th>
             <th>How often?</th>
@@ -49,10 +48,6 @@
             <% monthlyTotal.push(expenses[i].monthly) %>
             <% yearlyTotal.push(expenses[i].yearly) %>
             <tr>
-              <th>
-                
-              </th>
-              
               <!-- Expense -->
               <td>
                 <a href="/expense/<%=expenses[i]._id%>"><%= expenses[i].expense %></a>
@@ -107,11 +102,22 @@
   <div class="container-fluid" align="center">
     <div class="card w-96 bg-base-100 shadow-xl" align="left">
       <div class="card-body">
-        <div class="card-title">Totals</div>
-        <p>Daily: $<%= dailyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
-        <p>Weekly: $<%= weeklyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
-        <p>Monthly: $<%= monthlyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
-        <p>Annually: $<%= yearlyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="col">
+            <div class="card-title">Total Expenses</div>
+            <p>Daily: $<%= dailyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Weekly: $<%= weeklyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Monthly: $<%= monthlyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Annually: $<%= yearlyTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+          </div>
+          <div class="col">
+            <div class="card-title">Total Income</div>
+            <p>Daily: $<%= dailyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Weekly: $<%= weeklyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Monthly: $<%= monthlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+            <p>Annually: $<%= yearlyIncomeTotal.reduce((a,b) => Number(a) + Number(b), 0).toFixed(2) %></p>
+          </div>
+        </div>
       </div>
     </div>
     </div>
