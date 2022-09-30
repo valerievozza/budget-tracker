@@ -1,12 +1,14 @@
 // const cloudinary = require("../middleware/cloudinary");
 const Expense = require("../models/Expense");
+const Income = require("../models/Income");
 
 module.exports = {
   getBudget: async (req, res) => {
     try {
       const expenses = await Expense.find({ user: req.user.id, deleted: false })
+      const incomes = await Income.find({ user: req.user.id, deleted: false })
 
-      res.render("budget.ejs", { expenses: expenses, user: req.user });
+      res.render("budget.ejs", { expenses: expenses, incomes: incomes, user: req.user });
       // console.log(expenses)
     } catch (err) {
       console.error(err);
