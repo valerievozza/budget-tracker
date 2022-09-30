@@ -99,7 +99,6 @@ ExpenseSchema.virtual('weekly')
     }
 })
 
-// todo: make this code monthly
 ExpenseSchema.virtual('monthly')
   .get(function() {
     
@@ -109,20 +108,19 @@ ExpenseSchema.virtual('monthly')
 
     // Day
     if (unit === 'day') {
-      return (cost / num).toFixed(2)
+      return ((30.44 / num) * cost).toFixed(2)
     // Week
     } else if (unit === 'week') {
-      return ((cost / num) / 7).toFixed(2)
+      return ((4.35 / num) * cost).toFixed(2)
     // Month
     } else if (unit === 'month') {
-      return ((cost / num) / 30).toFixed(2)
+      return (cost / num).toFixed(2)
     // Year
     } else if (unit === 'year') {
-      return (cost / (365 / num)).toFixed(2)
+      return ((cost / num) / 12).toFixed(2)
     }
 })
 
-// todo: make this code yearly
 ExpenseSchema.virtual('yearly')
   .get(function() {
     
