@@ -17,7 +17,7 @@
           <label class="label" for="frequency">How often?<br>Every...</label>
           <div class="grid grid-cols-2 gap-5">
             <input type="number" value="1" class="input w-full max-w-xs mb-3 col" name="num" id="num" />
-            <select class="select select-primary w-full max-w-xs mb-3 col" name="unit" id="unit" >
+            <select class="select w-full max-w-xs mb-3 col" name="unit" id="unit" >
               <option value="day">Day(s)</option>
               <option value="week">Week(s)</option>
               <option selected value="month">Month(s)</option>
@@ -30,7 +30,7 @@
           <input type="date" class="input w-full max-w-xs mb-3" name="due" id="due" />
 
           <!-- Category -->
-          <select class="select select-primary w-full max-w-xs mb-3 col" name="category" id="category" >
+          <select class="select w-full max-w-xs mb-3 col" name="category" id="category" >
             <option value="">Category</option>
             <option value="home">Home</option>
             <option value="auto">Auto</option>
@@ -43,7 +43,7 @@
           <input type="text" placeholder="Source of funds" class="input w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
 
           <!-- Notes -->
-          <textarea class="textarea textarea-primary mb-3" placeholder="Notes"></textarea>
+          <textarea class="textarea mb-3" placeholder="Notes"></textarea>
         </div>
         <div class="card-actions justify-end">
           <button type="submit" class="btn btn-accent">Submit</button>

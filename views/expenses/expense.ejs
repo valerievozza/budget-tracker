@@ -1,7 +1,7 @@
 <%- include('../partials/header') -%>
 
 <div class="container-fluid" align="center">
-  <div class="card w-96 bg-base-100 shadow-xl" align="left">
+  <div class="card w-96 bg-accent shadow-xl" align="left">
     <div class="card-body">
       <h2 class="card-title"><%= expense.expense %></h2>
       <div>
@@ -33,7 +33,7 @@
               action="/expense/<%= expense.id %>/deleteExpense?_method=PUT"
               method="POST"
             >
-              <button class="btn btn-secondary" type="submit">Delete</button>
+              <button class="btn btn-accent" type="submit">Delete</button>
             </form>
           </div>
           
