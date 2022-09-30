@@ -4,33 +4,25 @@
   <div class="card w-96 bg-base-100 shadow-xl" align="left">
     <div class="card-body">
       <h2 class="card-title"><%= expense.expense %></h2>
-      <div class="grid grid-cols-2">
-        <div class="col">
-          <ul>
-            <li>Cost</li>
-            <li>Frequency</li>
-            <li>Due Date</li>
-            <li>Category</li>
-            <li>Source of Funds</li>
-            <li>Notes</li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul>
-            <li><%= expense.cost %></li>
-            <li>
-              <% if (expense.frequency.num > 1) { %>
-                Every <%= expense.frequency.num %> <%= expense.frequency.unit %>s
-              <% } else if (expense.frequency.num === 1) { %>
-                Every <%= expense.frequency.unit %>
-              <% } %>
-            </li>
-            <li><%= expense.due %></li>
-            <li><%= expense.category %></li>
-            <li><%= expense.fundsSource %></li>
-            <li><%= expense.notes %></li>
-          </ul>
-        </div>
+      <div>
+        <ul>
+          <li>Cost: $<%= expense.cost.toFixed(2) %></li>
+          <li>Frequency:
+            <% if (expense.frequency.num > 1) { %>
+              Every <%= expense.frequency.num %> <%= expense.frequency.unit %>s
+            <% } else if (expense.frequency.num === 1) { %>
+              Every <%= expense.frequency.unit %>
+            <% } %>
+          </li>
+          <li>Due Date: <%= expense.due %></li>
+          <li>Category: 
+            <% if (expense.category !== "") { %>
+              <%= expense.category[0].toUpperCase() + expense.category.slice(1) %>
+            <% } %>
+          </li>
+          <li>Source of Funds: <%= expense.fundsSource %></li>
+          <li>Notes: <%= expense.notes %></li>
+        </ul>
       </div>
         <div class="card-actions justify-end">
           <div>
