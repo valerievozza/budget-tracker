@@ -6,6 +6,8 @@
       <h2 class="card-title">Add an expense</h2>
       <form action="/expense/add" method="POST">
         <div class="form-control">
+
+          <!-- Expense -->
           <input type="text" placeholder="Expense" class="input input-bordered input-primary w-full max-w-xs mb-3" name="expense" id="expense" required />
           
           <!-- Cost -->
@@ -22,8 +24,12 @@
               <option value="year">Year(s)</option>
             </select>
           </div>
+
+          <!-- Due -->
           <label class="label" for="due">Due Date</label>
           <input type="date" class="input input-bordered input-primary w-full max-w-xs mb-3" name="due" id="due" />
+
+          <!-- Category -->
           <select class="select select-primary w-full max-w-xs mb-3 col" name="category" id="category" >
             <option value="">Category</option>
             <option value="home">Home</option>
@@ -32,7 +38,11 @@
             <option value="utilities">Utilities</option>
             <option value="pet">Pet</option>
           </select>
+
+          <!-- Funds Source -->
           <input type="text" placeholder="Source of funds" class="input input-bordered input-primary w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
+
+          <!-- Notes -->
           <textarea class="textarea textarea-primary mb-3" placeholder="Notes"></textarea>
         </div>
         <div class="card-actions justify-end">
