@@ -87,7 +87,7 @@ module.exports = {
             {
               new: true,
               runValidators: true
-          })
+            })
       res.redirect(`/expense/${req.params.id}`)
       }
 
