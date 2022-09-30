@@ -9,6 +9,8 @@
         method="POST"
       >
         <div class="form-control">
+
+          <!-- Expense -->
           <input type="text" placeholder="Expense" value="<%= expense.expense %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="expense" id="expense" required />
           
           <!-- Cost -->
@@ -19,16 +21,16 @@
             <% let num = expense.frequency.num %>
             <% let unit = expense.frequency.unit %>
             
-          <label class="label" for="frequency">How often?<br>Every...</label>
-          <div class="grid grid-cols-2 gap-5">
+            <label class="label" for="frequency">How often?<br>Every...</label>
+            <div class="grid grid-cols-2 gap-5">
               <input type="number" placeholder="Number" value="<%= num %>" class="input input-bordered input-primary w-full max-w-xs mb-3 col" name="num" id="num" />
               <select class="select select-primary w-full max-w-xs mb-3 col" name="unit" id="unit" value="<%= unit %>" >
-              <option value="day">Day(s)</option>
-              <option value="week">Week(s)</option>
+                <option value="day">Day(s)</option>
+                <option value="week">Week(s)</option>
                 <option value="month">Month(s)</option>
-              <option value="year">Year(s)</option>
-            </select>
-          </div>
+                <option value="year">Year(s)</option>
+              </select>
+            </div>
           <% } %>
           <label class="label" for="due" value="<%= expense.due %>">Due Date</label>
           <input type="date" class="input input-bordered input-primary w-full max-w-xs mb-3" name="due" id="due" />
@@ -52,11 +54,11 @@
               <% } %>
             <% } else { %>
               <option value="">Category</option>
-            <option value="home">Home</option>
-            <option value="auto">Auto</option>
-            <option value="education">Education</option>
-            <option value="utilities">Utilities</option>
-            <option value="pet">Pet</option>
+              <option value="home">Home</option>
+              <option value="auto">Auto</option>
+              <option value="education">Education</option>
+              <option value="utilities">Utilities</option>
+              <option value="pet">Pet</option>
             <% } %>
           </select>
           <input type="text" placeholder="Source of funds" value="<%= expense.fundsSource %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="fundsSource" id="fundsSource" />
