@@ -4,7 +4,7 @@ const Expense = require("../models/Expense");
 module.exports = {
   getBudget: async (req, res) => {
     try {
-      const expenses = await Expense.find({ user: req.user.id, deleted: false }).lean();
+      const expenses = await Expense.find({ user: req.user.id, deleted: false })
       res.render("budget.ejs", { expenses: expenses, user: req.user });
       console.log(expenses)
     } catch (err) {
