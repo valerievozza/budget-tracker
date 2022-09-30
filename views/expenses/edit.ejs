@@ -15,6 +15,10 @@
           <input type="number" placeholder="Cost" value="<%= expense.cost %>" class="input input-bordered input-primary w-full max-w-xs mb-3" name="cost" id="cost" min="1" required />
           
           <!-- Frequency -->
+          <% if (expense.frequency) { %>
+            <% let num = expense.frequency.num %>
+            <% let unit = expense.frequency.unit %>
+            
           <label class="label" for="frequency">How often?<br>Every...</label>
           <div class="grid grid-cols-2 gap-5">
             <input type="number" placeholder="Number" value="<%= expense.frequency.num %>" class="input input-bordered input-primary w-full max-w-xs mb-3 col" name="num" id="num" />
