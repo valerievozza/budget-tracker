@@ -2,3 +2,7 @@
   cursor: pointer;
   color: gray;
 }
+
+footer a:hover {
+  color: gray;
+}
