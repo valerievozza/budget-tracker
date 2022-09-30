@@ -91,4 +91,17 @@
   </div>
 </div>
   
+  <div class="container-fluid" align="center">
+    <div class="card w-96 bg-base-100 shadow-xl" align="left">
+      <div class="card-body">
+        <div class="card-title">Totals</div>
+        <p>Daily: $<%= dailyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
+        <p>Weekly: $<%= weeklyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
+        <p>Monthly: $<%= monthlyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
+        <p>Annually: $<%= yearlyTotal.reduce((a,b) => Number(a) + Number(b), 0) %></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 <%- include('partials/footer') -%>
