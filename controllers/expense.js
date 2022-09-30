@@ -68,7 +68,23 @@ module.exports = {
       if (expense.user != req.user.id) {
           res.redirect('/')
       } else {
-          expense = await Expense.findOneAndUpdate({_id: req.params.id}, req.body, {
+          expense = await Expense.findOneAndUpdate({
+            _id: req.params.id},
+            {
+              expense: req.body.expense,
+              cost: req.body.cost,
+              // frequency: req.body.frequency,
+              frequency: {
+                num: req.body.num,
+                unit: req.body.unit,
+              },
+              category: req.body.category,
+              due: req.body.due,
+              fundsSource: req.body.fundsSource,
+              notes: req.body.notes,
+              user: req.user.id,
+            },
+            {
               new: true,
               runValidators: true
           })
