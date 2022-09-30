@@ -12,6 +12,7 @@
     <div class="card-body">
       <div class="card-title">Totals</div>
       <p>Daily:</p>
+
       <p>Weekly:</p>
       <p>Monthly:</p>
       <p>Annually:</p>
@@ -30,6 +31,10 @@
           <th>Expense</th>
           <th>Cost</th>
           <th>How often?</th>
+          <th>Daily</th>
+          <th>Weekly</th>
+          <th>Monthly</th>
+          <th>Yearly</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +54,55 @@
                     Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>s
                    <% } else if (expenses[i][frequency].num === 1) { %>
                     Every <%= expenses[i][frequency].num %> <%= expenses[i][frequency].unit %>
+                   <% } %>
+                <%}%>
+             <%}%>
+            </td>
+
+            <!-- Daily -->
+            <td>
+              <!-- todo: FIX THIS -- BAD MATH -->
+              <% for (frequency in expenses[i]) { %>
+                <% if (expenses[i].frequency) { %>
+                  <!-- Day -->
+                  <% if (expenses[i][frequency].unit === 'day') { %>
+                    $<%= expenses[i].cost / expenses[i][frequency].num %>
+                    <!-- Week -->
+                   <% } else if (expenses[i][frequency].unit === 'day') { %>
+                    $<%= expenses[i].cost / (7 / expenses[i][frequency].num) %>
+                    <!-- Month -->
+                   <% } else if (expenses[i][frequency].unit === 'month') { %>
+                    $<%= expenses[i].cost / (30 / expenses[i][frequency].num) %>
+                    <!-- Year -->
+                   <% } else if (expenses[i][frequency].unit === 'year') { %>
+                    $<%= expenses[i].cost / (365 / expenses[i][frequency].num) %>
+                   <% } %>
+                <%}%>
+             <%}%>
+            </td>
+
+            <!-- Weekly -->
+            <td></td>
+
+            <!-- Monthly -->
+            <td></td>
+
+            <!-- Yearly -->
+            <td>
+              <% for (frequency in expenses[i]) { %>
+                <% if (expenses[i].frequency) { %>
+                  <!-- Day -->
+                  <% if (expenses[i][frequency].unit === 'day') { %>
+                    $<%= (365 / expenses[i][frequency].num) * expenses[i].cost %>
+                    <!-- Week -->
+                   <% } else if (expenses[i][frequency].unit === 'day') { %>
+                    $<%= (52 / expenses[i][frequency].num) * expenses[i].cost %>
+                    <!-- Month -->
+                   <% } else if (expenses[i][frequency].unit === 'month') { %>
+                    $<%= (12 / expenses[i][frequency].num) * expenses[i].cost %>
+                    <!-- Year -->
+                   <% } else if (expenses[i][frequency].unit === 'year') { %>
+                    $<%= (expenses[i][frequency].num) * expenses[i].cost %>
                    <% } %>
                 <%}%>
              <%}%>
