@@ -25,10 +25,20 @@
         </tr>
       </thead>
       <tbody>
+          <% let dailyTotal = [] %>
+          <% let weeklyTotal = [] %>
+          <% let monthlyTotal = [] %>
+          <% let yearlyTotal = [] %>
         <!-- Row -->
         <% for (let i=0; i < expenses.length; i++) { %>
+            <% dailyTotal.push(expenses[i].daily) %>
+            <% weeklyTotal.push(expenses[i].weekly) %>
+            <% monthlyTotal.push(expenses[i].monthly) %>
+            <% yearlyTotal.push(expenses[i].yearly) %>
           <tr>
-            <th></th>
+              <th>
+                
+              </th>
             
             <!-- Expense -->
             <td>
