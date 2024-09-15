@@ -3,8 +3,6 @@
 
 A personal budget tracker app with passport local authorization. Add bills and multiple sources of income. See how your expenses break down daily, weekly, monthly, and yearly.
 
-**Link to project:** https://pocket.cyclic.app
-
 
 ## Screenshots
 
@@ -63,4 +61,4 @@ To run this project, you will need to add the following environment variables to
 | Mailroom | Pictogram | myPetPal |
 |:--:|:--:|:--:|
 | ![mailroom](https://user-images.githubusercontent.com/101529105/193365432-ab411c6f-b230-4355-9252-0b17ed7aa078.png) | ![pictogram](https://user-images.githubusercontent.com/101529105/193365933-2936db33-1cd2-47ac-b960-c6f15bfafcb4.png) | ![Screenshot from 2022-09-30 11-42-02](https://user-images.githubusercontent.com/101529105/193365537-af22d177-b035-430e-b3d7-bdb7b25133c0.png) |
-| https://mailroom.cyclic.app | https://pictogram.cyclic.app | https://mypetpal.onrender.com
+| [Repo](https://github.com/valerievozza/mailroom) | [Repo](https://github.com/valerievozza/pictogram) | [Repo](https://github.com/valerievozza/mypetpal)
